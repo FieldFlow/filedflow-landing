@@ -6,8 +6,8 @@ import Logo04 from "@/public/images/logo-04.svg";
 import Logo05 from "@/public/images/logo-05.svg";
 import Logo06 from "@/public/images/logo-06.svg";
 import Logo07 from "@/public/images/logo-07.svg";
-import Logo08 from "@/public/images/logo-08.svg";
-import Logo09 from "@/public/images/logo-09.svg";
+import Logo08 from "@/public/images/logo-09.svg";
+import Logo09 from "@/public/images/logo-08.svg";
 
 export default function BusinessCategories() {
   return (
@@ -180,8 +180,8 @@ export default function BusinessCategories() {
                   <Image
                     className="relative"
                     src={Logo01}
-                    width={32}
-                    height={32}
+                    width={64}
+                    height={64}
                     alt="Logo 01"
                   />
                 </div>

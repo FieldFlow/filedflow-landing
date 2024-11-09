@@ -1,6 +1,9 @@
 export const metadata = {
-  title: "Home - Simple",
+  title: "FieldFlow",
   description: "Page description",
+  icons: {
+      icon: "/favicon.svg",
+  },
 };
 
 import Hero from "@/components/hero-home";
