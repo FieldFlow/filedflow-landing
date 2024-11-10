@@ -76,7 +76,6 @@ export default function HeroHome() {
                   <a
                     className="btn w-full bg-white text-gray-800 shadow hover:bg-gray-50 sm:ml-4 sm:w-auto"
                     href="https://esg.fieldflow.lu/"
-                    target="_blank"
                   >
                     Demo
                   </a>

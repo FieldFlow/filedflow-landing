@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Sign Up - Simple",
-  description: "Page description",
+  title: "Sign Up - FieldFlow",
+  description: "Registration",
 };
 
 export default function SignUp() {

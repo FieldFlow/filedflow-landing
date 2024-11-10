@@ -1,6 +1,6 @@
 export const metadata = {
   title: "FieldFlow",
-  description: "Page description",
+  description: "A web3 platform enabling seamless certification across sectors & stakeholders",
   icons: {
       icon: "/favicon.svg",
   },

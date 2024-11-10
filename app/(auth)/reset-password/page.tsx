@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Reset Password - Simple",
-  description: "Page description",
+  title: "Reset Password - FieldFlow",
+  description: "Reset your password",
 };
 
 export default function ResetPassword() {
