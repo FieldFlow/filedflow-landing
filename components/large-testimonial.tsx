@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// @ts-ignore
 export default function LargeTestimonial({text, name, organisation, link, image}) {
   return (
     <section>

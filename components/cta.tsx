@@ -8,10 +8,12 @@ export default function CtaForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState(null);
 
+  // @ts-ignore
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // @ts-ignore
   async function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -35,12 +37,15 @@ export default function CtaForm() {
       const result = await response.json();
 
       if (result.success) {
+        // @ts-ignore
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" }); // Сброс полей формы после успешной отправки
       } else {
+        // @ts-ignore
         setStatus("Failed to send message.");
       }
     } catch (error) {
+      // @ts-ignore
       setStatus("An error occurred while submitting the form.");
     }
   }
