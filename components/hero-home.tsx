@@ -58,26 +58,31 @@ export default function HeroHome() {
               </p>
               <div className="relative before:absolute before:inset-0 before:border-y before:[border-image:linear-gradient(to_right,transparent,theme(colors.slate.300/.8),transparent)1]">
                 <div
-                  className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center"
-                  data-aos="zoom-y-out"
-                  data-aos-delay={450}
+                    className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center"
+                    data-aos="zoom-y-out"
+                    data-aos-delay={450}
                 >
                   <a
-                    className="btn group mb-4 w-full bg-gradient-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] text-white shadow hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#contactForm"
+                      className="btn group block mb-4 w-full bg-gradient-to-t from-blue-600 to-blue-500 bg-[length:100%_100%] bg-[bottom] text-white shadow hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
+                      href="#contactForm"
                   >
-                    <span className="relative inline-flex items-center">
+                      <span className="relative inline-flex items-center justify-center w-full h-full">
                       Book a call{" "}
-                      <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
+                        <span className="ml-1 tracking-normal text-blue-300 transition-transform group-hover:translate-x-0.5">
                         -&gt;
+                        </span>
                       </span>
-                    </span>
                   </a>
                   <a
-                    className="btn w-full bg-white text-gray-800 shadow hover:bg-gray-50 sm:ml-4 sm:w-auto"
-                    href="https://esg.fieldflow.lu/"
+                      className="btn group block w-full bg-white text-gray-800 shadow hover:bg-gray-50 sm:ml-4 sm:w-auto"
+                      href="https://esg.fieldflow.lu/"
                   >
-                    Demo
+                      <span className="relative inline-flex items-center justify-center w-full h-full">
+                          Demo
+                          <span className="ml-1 tracking-normal text-gray-500 transition-transform group-hover:translate-x-0.5">
+                              -&gt;
+                          </span>
+                      </span>
                   </a>
                 </div>
               </div>
@@ -87,7 +92,7 @@ export default function HeroHome() {
               className="mx-auto max-w-3xl"
               data-aos="zoom-y-out"
               data-aos-delay={600}
-              style={{ display: 'flex', justifyContent: 'center' }}
+              style={{display: 'flex', justifyContent: 'center'}}
           >
             <img
                 src="/field.gif"
