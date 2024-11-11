@@ -116,7 +116,7 @@ export default function CtaForm() {
                 >
                   Submit
                 </button>
-                {status && <p className="text-green-400">{status}</p>}
+                <div className="h-6">{status && <p className="text-white">{status}</p>}</div>
               </form>
             </div>
           </div>
