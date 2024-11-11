@@ -2,6 +2,8 @@ import Link from "next/link";
 import Logo from "./logo";
 
 export default function Footer({ border = false }: { border?: boolean }) {
+  const isDisabled = true; // Переключите на false, чтобы активировать ссылки
+
   return (
     <footer>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -12,54 +14,56 @@ export default function Footer({ border = false }: { border?: boolean }) {
           {/* 1st block */}
           <div className="space-y-2 sm:col-span-12 lg:col-span-4">
             <div>
-              <Logo />
+              <Logo/>
             </div>
             <div className="text-sm text-gray-600">
               &copy; filedflow.lu - All rights reserved 2024.
+            </div>
+            <div className="text-sm text-gray-600 flex items-center space-x-2">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+              >
+                <path
+                    d="M2.8 4h18.4c1 0 1.8.8 1.8 1.8v12.4c0 1-.8 1.8-1.8 1.8H2.8A1.8 1.8 0 011 18.2V5.8C1 4.8 1.8 4 2.8 4zm18.4 1.5H2.8a.3.3 0 00-.3.3v.3l9.5 6.7a.5.5 0 00.6 0l9.5-6.7v-.3a.3.3 0 00-.3-.3zM12 12.2L2.5 5.9v10.2c0 .2.1.3.3.3h18.4a.3.3 0 00.3-.3V5.9L12 12.2z"/>
+              </svg>
+              <a href="mailto:moien@fieldflow.lu" className="hover:text-blue-500">
+                moien@fieldflow.lu
+              </a>
             </div>
           </div>
 
           {/* 2nd block */}
           <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Product</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className={`text-sm font-medium ${isDisabled ? "text-gray-400 opacity-70" : "text-gray-800"}`}>
+              Product
+            </h3>
+            <ul className={`space-y-2 text-sm ${isDisabled ? "pointer-events-none opacity-50" : ""}`}>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Features
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Integrations
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Pricing & Plans
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Changelog
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Our method
                 </Link>
               </li>
@@ -68,45 +72,32 @@ export default function Footer({ border = false }: { border?: boolean }) {
 
           {/* 3rd block */}
           <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Company</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className={`text-sm font-medium ${isDisabled ? "text-gray-400 opacity-70" : "text-gray-800"}`}>
+              Company
+            </h3>
+            <ul className={`space-y-2 text-sm ${isDisabled ? "pointer-events-none opacity-50" : ""}`}>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   About us
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Diversity & Inclusion
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Financial statements
                 </Link>
               </li>
@@ -115,34 +106,28 @@ export default function Footer({ border = false }: { border?: boolean }) {
 
           {/* 4th block */}
           <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h3 className="text-sm font-medium">Resources</h3>
-            <ul className="space-y-2 text-sm">
+            <h3 className={`text-sm font-medium ${isDisabled ? "text-gray-400 opacity-70" : "text-gray-800"}`}>
+              Resources
+            </h3>
+            <ul className={`space-y-2 text-sm ${isDisabled ? "pointer-events-none opacity-50" : ""}`}>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Community
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Terms of service
                 </Link>
               </li>
               <li>
-                <Link
-                  className="text-gray-600 transition hover:text-gray-900"
-                  href="#0"
-                >
+                <Link className={`${isDisabled ? "text-gray-500 opacity-60" : "text-gray-600 transition hover:text-gray-900"}`} href="#0">
                   Report a vulnerability
                 </Link>
               </li>
             </ul>
           </div>
+
 
           {/* 5th block */}
           <div className="space-y-2 sm:col-span-6 md:col-span-3 lg:col-span-2">
