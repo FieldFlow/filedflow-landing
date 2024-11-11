@@ -1,7 +1,6 @@
 import Image from "next/image";
-import TestimonialImg from "@/public/images/large-testimonial.jpg";
 
-export default function LargeTestimonial() {
+export default function LargeTestimonial({text, name, organisation, link, image}) {
   return (
     <section>
       <div className="mx-auto max-w-2xl px-4 sm:px-6">
@@ -23,24 +22,17 @@ export default function LargeTestimonial() {
               </svg>
               <Image
                 className="rounded-full"
-                src={TestimonialImg}
+                src={image}
                 width={48}
                 height={48}
                 alt="Large testimonial"
               />
             </div>
-            <p className="text-2xl font-bold text-gray-900">
-              “Simple has simplified my life in more ways than one. From
-              managing my sites to{" "}
-              <em className="italic text-gray-500">keeping track of tasks</em>,
-              it's become my go-to tool for everything.”
-            </p>
+            <p className="text-2xl font-bold text-gray-900">{text}</p>
             <div className="text-sm font-medium text-gray-500">
-              <span className="text-gray-700">Mary Sullivan</span>{" "}
+              <span className="text-gray-700">{name}</span>{" "}
               <span className="text-gray-400">/</span>{" "}
-              <a className="text-blue-500" href="#0">
-                CTO at Microsoft
-              </a>
+              <a className="text-blue-500" href={link}>{organisation}</a>
             </div>
           </div>
         </div>
