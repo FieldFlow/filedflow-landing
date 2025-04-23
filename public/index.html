@@ -4,11 +4,27 @@
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cc9e289a-e132-4aa6-bf18-6d152f3414c4" type="text/javascript" async></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXKWCQLVWG"></script>
     <script>
+        // Initialize dataLayer
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+
+        // Set default consent state (before gtag('js') and gtag('config'))
+        // Default to denied for regions requiring explicit consent (like GDPR)
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied', // Added for GA4
+            'ad_personalization': 'denied', // Added for GA4
+            'analytics_storage': 'denied'
+        });
+
+        // Load gtag library
         gtag('js', new Date());
 
+        // Configure Google Analytics - This will now respect the consent state
         gtag('config', 'G-CXKWCQLVWG');
+
+        // Cookiebot will automatically call gtag('consent', 'update', ...)
+        // based on user interaction with the banner.
     </script>
     <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon/favicon-32x32.png">
