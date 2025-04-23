@@ -12,9 +12,12 @@
         // Default to denied for regions requiring explicit consent (like GDPR)
         gtag('consent', 'default', {
             'ad_storage': 'denied',
-            'ad_user_data': 'denied', // Added for GA4
-            'ad_personalization': 'denied', // Added for GA4
-            'analytics_storage': 'denied'
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'functionality_storage': 'denied',
+            'personalization_storage': 'denied',
+            'security_storage': 'denied',
         });
 
         // Load gtag library
