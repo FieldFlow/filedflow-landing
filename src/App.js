@@ -11,7 +11,7 @@ import CallToActionSection from './components/CallToActionSection'; // Assuming 
 //     <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 // );
 
-// Component for the "How It Works" section - UPDATED VISUAL FLOW + Farmer/Certifier Diagram
+// Component for the "How It Works" section - FIXED LAYOUT OVERFLOW ISSUES
 const HowItWorksSection = () => {
   // Simplified steps based on the draw.io diagram
   const processStages = [
@@ -31,23 +31,23 @@ const HowItWorksSection = () => {
 
   return (
       // UPDATED section id to "how"
-      <section id="how" className="py-16 md:py-24 bg-gray-50">
+      <section id="how" className="py-16 md:py-24 bg-gray-50 overflow-hidden"> {/* Added overflow-hidden */}
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">How FieldFlow Works</h2>
 
-          {/* Main Process Flow */}
-          <div className="flex flex-col md:flex-row items-stretch justify-between space-y-8 md:space-y-0 md:space-x-4 lg:space-x-8 mb-16">
+          {/* Main Process Flow - Adjusted flex properties to prevent wrapping on md+ */}
+          <div className="flex flex-col md:flex-row items-stretch justify-start md:justify-between space-y-8 md:space-y-0 md:space-x-4 lg:space-x-6 mb-16"> {/* Removed flex-wrap, changed justify */}
             {processStages.map((stage, index) => (
                 <React.Fragment key={index}>
-                  {/* Individual stage card */}
-                  <div className="flex-1 flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-xs mx-auto md:mx-0">
-                    <div className="mb-4">{stage.icon}</div>
+                  {/* Individual stage card - Adjusted width/flex properties */}
+                  <div className="w-full md:w-1/4 flex flex-col items-center text-center p-4 md:p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 mx-auto md:mx-0"> {/* Use w-1/4 for desktop */}
+                    <div className="mb-4 flex-shrink-0">{stage.icon}</div>
                     <h3 className="text-xl font-semibold mb-2 text-gray-700">{stage.title}</h3>
-                    <p className="text-gray-600">{stage.description}</p>
+                    <p className="text-gray-600 text-sm md:text-base">{stage.description}</p> {/* Adjusted text size */}
                   </div>
-                  {/* Arrow separator for desktop */}
+                  {/* Arrow separator for desktop - Adjusted margin */}
                   {index < processStages.length - 1 && (
-                      <div className="hidden md:flex items-center text-gray-400 mx-2">
+                      <div className="hidden md:flex items-center text-gray-400 mx-2 lg:mx-4 flex-shrink-0"> {/* Added flex-shrink-0 */}
                         <ArrowRight size={32} />
                       </div>
                   )}
@@ -61,18 +61,18 @@ const HowItWorksSection = () => {
             ))}
           </div>
 
-          {/* Blockchain/Traceability Visualization */}
+          {/* Blockchain/Traceability Visualization - Adjusted min-width */}
           <div className="mt-16 text-center mb-16">
             <h3 className="text-2xl font-semibold text-center mb-8 text-gray-700">Ensuring Traceability</h3>
             {/* Grid for blockchain elements */}
             <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
               {blockchainElements.map((element, index) => (
                   <React.Fragment key={element.label}>
-                    {/* Individual blockchain element card */}
-                    <div className="flex flex-col items-center p-4 border border-gray-300 bg-white rounded-lg shadow-sm min-w-[140px] md:min-w-[150px]">
+                    {/* Individual blockchain element card - Adjusted min-width */}
+                    <div className="flex flex-col items-center p-4 border border-gray-300 bg-white rounded-lg shadow-sm w-36 sm:w-auto sm:min-w-[150px]"> {/* Adjusted width and min-width */}
                       <div className="mb-2">{element.icon}</div>
                       <span className="text-sm font-semibold text-gray-800">{element.label}</span>
-                      <span className="text-xs text-gray-500 mt-1 text-center">Data: {element.data}</span>
+                      <span className="text-xs text-gray-500 mt-1 text-center break-words">Data: {element.data}</span> {/* Added break-words */}
                     </div>
                     {/* Link icon separator for desktop */}
                     {index < blockchainElements.length - 1 && (
@@ -178,7 +178,7 @@ const TeamSection = () => {
   );
 };
 
-// Component for the "Roadmap" section
+// Component for the "Roadmap" section - FIXED LAYOUT ISSUES
 const RoadmapSection = () => {
   // Roadmap milestones data
   const milestones = [
@@ -192,24 +192,54 @@ const RoadmapSection = () => {
       <section id="roadmap" className="py-16 md:py-24 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">Our Roadmap</h2>
+          {/* Container for the timeline */}
           <div className="relative">
-            {/* Timeline line (visible on medium screens and up) */}
-            <div className="hidden md:block border-l-4 border-green-500 absolute h-full top-0 left-1/2 transform -translate-x-1/2"></div>
+            {/* Vertical line for desktop, hidden on mobile */}
+            <div className="hidden md:block absolute w-1 bg-green-500 h-full left-1/2 transform -translate-x-1/2"></div>
 
-            {/* Map through milestones to create timeline items */}
+            {/* Map through milestones */}
             {milestones.map((milestone, index) => (
-                <div key={index} className={`mb-8 flex justify-between items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                  {/* Spacer div */}
-                  <div className="order-1 md:w-5/12"></div>
-                  {/* Timeline marker */}
-                  <div className="z-20 flex items-center order-1 bg-green-500 shadow-xl w-8 h-8 rounded-full">
-                    <h1 className="mx-auto font-semibold text-lg text-white">{index + 1}</h1>
+                <div key={index} className="mb-8 flex md:justify-between md:items-center w-full flex-col md:flex-row"> {/* Changed flex direction for mobile */}
+
+                  {/* Mobile Layout: Marker + Card stacked */}
+                  <div className="md:hidden flex items-start space-x-4 w-full mb-4">
+                    {/* Marker */}
+                    <div className="flex-shrink-0 z-10 flex items-center justify-center bg-green-500 shadow-xl w-8 h-8 rounded-full mt-1">
+                      <h1 className="font-semibold text-lg text-white">{index + 1}</h1>
+                    </div>
+                    {/* Card */}
+                    <div className="bg-white rounded-lg shadow-md px-6 py-4 flex-grow">
+                      <p className="text-green-600 font-semibold">{milestone.period}</p>
+                      <h3 className="font-bold text-gray-800 text-lg">{milestone.event}</h3>
+                    </div>
                   </div>
-                  {/* Milestone card */}
-                  <div className={`order-1 bg-white rounded-lg shadow-md md:w-5/12 px-6 py-4 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <p className="text-green-600 font-semibold">{milestone.period}</p>
-                    <h3 className="font-bold text-gray-800 text-lg">{milestone.event}</h3>
+
+                  {/* Desktop Layout: Alternating sides */}
+                  {/* Left Side Card (for odd index) */}
+                  <div className={`hidden md:block md:w-5/12 ${index % 2 !== 0 ? 'order-1' : 'order-3'}`}>
+                    {index % 2 !== 0 && (
+                        <div className="bg-white rounded-lg shadow-md px-6 py-4 text-left">
+                          <p className="text-green-600 font-semibold">{milestone.period}</p>
+                          <h3 className="font-bold text-gray-800 text-lg">{milestone.event}</h3>
+                        </div>
+                    )}
                   </div>
+
+                  {/* Marker (Desktop) */}
+                  <div className="hidden md:flex order-2 z-10 items-center justify-center bg-green-500 shadow-xl w-8 h-8 rounded-full absolute left-1/2 transform -translate-x-1/2">
+                    <h1 className="font-semibold text-lg text-white">{index + 1}</h1>
+                  </div>
+
+                  {/* Right Side Card (for even index) */}
+                  <div className={`hidden md:block md:w-5/12 ${index % 2 === 0 ? 'order-3' : 'order-1'}`}>
+                    {index % 2 === 0 && (
+                        <div className="bg-white rounded-lg shadow-md px-6 py-4 text-left">
+                          <p className="text-green-600 font-semibold">{milestone.period}</p>
+                          <h3 className="font-bold text-gray-800 text-lg">{milestone.event}</h3>
+                        </div>
+                    )}
+                  </div>
+
                 </div>
             ))}
           </div>
@@ -323,7 +353,8 @@ function App() {
               Ensuring transparency in agricultural supply chains with modern technology.
             </p>
             {/* Call to action button - UPDATED href */}
-            <a href="#how" // Changed href
+            <a
+                href="#how" // Changed href
                 className="bg-white text-green-700 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 text-lg shadow-md"
             >
               Learn More
@@ -355,6 +386,7 @@ function App() {
           <HowItWorksSection />
           <MissionSection />
           <TeamSection />
+          {/* Updated RoadmapSection */}
           <RoadmapSection />
           {/* Use the imported CTA component */}
           <CallToActionSection />
