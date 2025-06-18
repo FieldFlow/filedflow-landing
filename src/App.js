@@ -355,6 +355,7 @@ function App() {
             {/* Call to action button - UPDATED href */}
             <a
                 target="_blank"
+                rel="noreferrer"
                 href="https://demo.fieldflow.lu"
                 className="bg-white text-green-700 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 text-lg shadow-md"
             >
