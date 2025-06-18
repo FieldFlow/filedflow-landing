@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Send } from 'lucide-react'; // Import necessary icons
+import { Phone } from 'lucide-react'; // Import necessary icons
 
 // Component for the "Call to Action" (CTA) section with Web3Forms integration
 const CallToActionSection = () => {
@@ -83,7 +83,7 @@ const CallToActionSection = () => {
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to enhance your product transparency?</h2>
                 <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                    Leave your phone number, and we'll call you back to discuss how FieldFlow can help.
+                    Leave your phone number, and we'll register you.
                 </p>
 
                 {/* Phone Number Submission Form */}
@@ -120,7 +120,7 @@ const CallToActionSection = () => {
                                 </>
                             ) : (
                                 <>
-                                    Request Callback <Send size={20} className="ml-2" />
+                                    Register
                                 </>
                             )}
                         </button>
@@ -133,10 +133,6 @@ const CallToActionSection = () => {
                         </p>
                     )}
                 </form>
-                {/* Link to general contact email */}
-                <p className="mt-8 text-sm">
-                    Or, you can <a href="mailto:moien@fieldflow.lu" className="underline hover:text-yellow-300">email us directly</a>.
-                </p>
             </div>
         </section>
     );
